@@ -1,0 +1,10 @@
+<section>
+  <div
+    *ngFor="let link of links"
+    class="social"
+    [class.active]="link.isActive"
+    (click)="redirect(link)"
+  >
+    {{ link.name }}
+  </div>
+</section>

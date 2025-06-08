@@ -1,0 +1,12 @@
+.app-header{
+    color: white;
+    text-align: center;
+    user-select: none;
+}
+
+.picture{
+    border: 3px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 50%;
+}

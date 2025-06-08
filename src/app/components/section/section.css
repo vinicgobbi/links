@@ -1,0 +1,32 @@
+section{
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.social{
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    height: 40px;
+    width: 300px;
+    padding-top: 15px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.473);
+    opacity: 0.7;
+    user-select: none;
+    color: #282828;
+    border: 1px;
+    border-color: #fff;
+    border-style: solid;
+    transition: 0.3s;
+}
+
+
+.social:hover{
+    background-color: #262626;
+    color: #fff;
+}
