@@ -16,6 +16,6 @@ export class Data {
 
   getLinks(): Observable<Link[]> {
 
-    return this.http.get<Link[]>('/assets/links.json');
+    return this.http.get<Link[]>('./assets/links.json');
   }
 }
