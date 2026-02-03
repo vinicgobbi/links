@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Data } from './../../services/data'; // Seu serviço de dados
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +10,7 @@ interface Link {
 
 @Component({
   selector: 'app-section',
-   imports: [CommonModule], // Se você estiver usando Standalone Components, precisa importar CommonModule ou RouterLink, etc.
+   imports: [], // Se você estiver usando Standalone Components, precisa importar CommonModule ou RouterLink, etc.
   templateUrl: './section.html',
   styleUrls: ['./section.css'] // Mudança de styleUrl para styleUrls
 })

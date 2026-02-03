@@ -1,10 +1,11 @@
 <section>
-  <div
-    *ngFor="let link of links"
-    class="social"
-    [class.active]="link.isActive"
-    (click)="redirect(link)"
-  >
-    {{ link.name }}
-  </div>
+  @for (link of links; track link) {
+    <div
+      class="social"
+      [class.active]="link.isActive"
+      (click)="redirect(link)"
+      >
+      {{ link.name }}
+    </div>
+  }
 </section>
