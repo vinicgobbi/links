@@ -1,6 +1,6 @@
 
 import { Data } from './../../services/data'; // Seu serviço de dados
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 interface Link {
   name: string;
@@ -12,6 +12,7 @@ interface Link {
   selector: 'app-section',
    imports: [], // Se você estiver usando Standalone Components, precisa importar CommonModule ou RouterLink, etc.
   templateUrl: './section.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./section.css'] // Mudança de styleUrl para styleUrls
 })
 
