@@ -25,13 +25,13 @@
     "alias": ["twitch", "tw", "live"]
   },
   {
-    "name": "Portfólio",
-    "link": "https://vinicgobbi.github.io",
+    "name": "Meu Website",
+    "link": "https://vinicgobbi.dev.br",
     "alias": ["portfolio", "portfólio", "site"]
   },
   {
     "name": "Blog",
-    "link": "https://vinicgobbi.github.io/blog",
+    "link": "https://blog.vinicgobbi.dev.br",
     "alias": ["blog"]
   },
 
