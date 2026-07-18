@@ -1,13 +1,8 @@
 [
   {
-    "name": "Portfólio",
-    "link": "https://vinicgobbi.github.io",
-    "alias": ["portfolio", "portfólio", "site"]
-  },
-  {
-    "name": "Blog",
-    "link": "https://vinicgobbi.github.io/blog",
-    "alias": ["blog"]
+    "name": "Instagram",
+    "link": "https://www.instagram.com/in/vinicgobbi",
+    "alias": ["instagram", "ig", "insta"]
   },
   {
     "name": "LinkedIn",
@@ -25,9 +20,24 @@
     "alias": ["gmail", "mail"]
   },
   {
-    "name": "Outlook",
-    "link": "mailto:vinicius.cgobbi@hotmail.com",
-    "alias": ["outlook", "hotmail"]
-  }
+    "name": "Twitch",
+    "link": "https://www.twitch.com/in/vinicgobbi",
+    "alias": ["twitch", "tw", "live"]
+  },
+  {
+    "name": "Portfólio",
+    "link": "https://vinicgobbi.github.io",
+    "alias": ["portfolio", "portfólio", "site"]
+  },
+  {
+    "name": "Blog",
+    "link": "https://vinicgobbi.github.io/blog",
+    "alias": ["blog"]
+  },
 
+  {
+    "name": "LinkedIn",
+    "link": "https://www.linkedin.com/in/vinicgobbi",
+    "alias": ["linkedin", "li"]
+  }
 ]
