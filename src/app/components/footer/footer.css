@@ -1,13 +1,3 @@
-.app-footer{
-    margin-top: 10px;
-    color: white;
-    text-align: center;
-    font-style: italic;
+.app-footer {
     user-select: none;
-    font-size: small;
-}
-
-.repo-link{
-    text-decoration: none;
-    color: blueviolet;
 }

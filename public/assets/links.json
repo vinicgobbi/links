@@ -1,27 +1,33 @@
 [
   {
     "name": "Portfólio",
-    "link": "https://vinicgobbi.github.io"
+    "link": "https://vinicgobbi.github.io",
+    "alias": ["portfolio", "portfólio", "site"]
   },
   {
     "name": "Blog",
-    "link": "https://vinicgobbi.github.io/blog"
+    "link": "https://vinicgobbi.github.io/blog",
+    "alias": ["blog"]
   },
   {
     "name": "LinkedIn",
-    "link": "https://www.linkedin.com/in/vinicgobbi"
+    "link": "https://www.linkedin.com/in/vinicgobbi",
+    "alias": ["linkedin", "li"]
   },
   {
     "name": "Github",
-    "link": "https://github.com/vinicgobbi"
+    "link": "https://github.com/vinicgobbi",
+    "alias": ["github", "gh"]
   },
   {
     "name": "Gmail",
-    "link": "mailto:vinicius.cgobbi2004@gmail.com"
+    "link": "mailto:vinicius.cgobbi2004@gmail.com",
+    "alias": ["gmail", "mail"]
   },
   {
     "name": "Outlook",
-    "link": "mailto:vinicius.cgobbi@hotmail.com"
+    "link": "mailto:vinicius.cgobbi@hotmail.com",
+    "alias": ["outlook", "hotmail"]
   }
 
 ]

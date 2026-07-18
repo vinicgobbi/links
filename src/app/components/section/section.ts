@@ -1,12 +1,7 @@
 
-import { Data } from './../../services/data'; // Seu serviço de dados
+import { Data } from './../../services/data';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-
-interface Link {
-  name: string;
-  link: string;
-  isActive?: boolean; // Propriedade opcional para controlar o estado ativo
-}
+import { Link } from '../../models/link';
 
 @Component({
   selector: 'app-section',

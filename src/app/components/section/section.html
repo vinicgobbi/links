@@ -1,11 +1,14 @@
-<section>
-  @for (link of links; track link) {
-    <div
-      class="social"
-      [class.active]="link.isActive"
-      (click)="redirect(link)"
-      >
-      {{ link.name }}
-    </div>
-  }
+<section class="container">
+  <div class="d-flex flex-column mx-auto">
+    @for (link of links; track link.name) {
+      <button
+        type="button"
+        class="social-link btn rounded-3 shadow-sm mb-3"
+        [class.active]="link.isActive"
+        (click)="redirect(link)"
+        >
+        {{ link.name }}
+      </button>
+    }
+  </div>
 </section>

@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-interface Link {
-  name: string
-  link: string
-}
+import { Link } from '../models/link';
 
 @Injectable({
   providedIn: 'root'
