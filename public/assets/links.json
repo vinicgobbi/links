@@ -1,7 +1,7 @@
 [
   {
     "name": "Instagram",
-    "link": "https://www.instagram.com/in/vinicgobbi",
+    "link": "https://www.instagram.com/vinicgobbi",
     "alias": ["instagram", "ig", "insta"]
   },
   {
@@ -17,11 +17,11 @@
   {
     "name": "Gmail",
     "link": "mailto:vinicius.cgobbi2004@gmail.com",
-    "alias": ["gmail", "mail"]
+    "alias": ["gmail", "mail", "contato"]
   },
   {
     "name": "Twitch",
-    "link": "https://www.twitch.com/in/vinicgobbi",
+    "link": "https://www.twitch.com/vinicgobbi",
     "alias": ["twitch", "tw", "live"]
   },
   {
