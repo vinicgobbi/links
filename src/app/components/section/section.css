@@ -7,8 +7,9 @@ section {
 }
 
 .social-link {
-    background-color: #fff;
-    color: #282828;
+    background-color: var(--bs-tertiary-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-border-color-translucent);
     padding: 10px;
     user-select: none;
     transition: 0.3s;
@@ -16,6 +17,7 @@ section {
 
 .social-link:hover,
 .social-link.active {
-    background-color: #262626;
-    color: #fff;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #0B0F14;
 }
