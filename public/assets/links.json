@@ -1,7 +1,7 @@
 [
   {
     "name": "Instagram",
-    "link": "https://www.instagram.com/vinicgobbi",
+    "link": "https://www.instagram.com/vinicgobbi.dev",
     "alias": ["instagram", "ig", "insta"]
   },
   {
@@ -33,11 +33,5 @@
     "name": "Blog",
     "link": "https://blog.vinicgobbi.dev.br",
     "alias": ["blog"]
-  },
-
-  {
-    "name": "LinkedIn",
-    "link": "https://www.linkedin.com/in/vinicgobbi",
-    "alias": ["linkedin", "li"]
   }
 ]
