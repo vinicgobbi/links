@@ -1,59 +1,41 @@
-# ViniLinks
+# Links — Vinícius Gobbi
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+Minha página de links: portfólio, LinkedIn, GitHub, currículo, e-mail e redes sociais, em um só lugar.
 
-## Development server
+🔗 [links.vinicgobbi.dev.br](https://links.vinicgobbi.dev.br)
 
-To start a local development server, run:
+## Stack
 
-```bash
-ng serve
-```
+- [Angular](https://angular.dev/) (standalone components, signals)
+- CSS próprio, com tema claro/escuro e os mesmos tokens visuais do [portfólio](https://github.com/vinicgobbi/website)
+- Netlify (hospedagem, redirects e edge function)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Editando os links
 
-## Code scaffolding
+Tudo vem de [`public/assets/links.json`](public/assets/links.json):
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Campo | Para quê |
+|---|---|
+| `name`, `link` | Nome exibido e destino |
+| `description` | Texto curto abaixo do nome (usuário, e-mail…) |
+| `icon` | Classe do [Bootstrap Icons](https://icons.getbootstrap.com/), ex.: `bi-github` |
+| `group` | `profissional` ou `social` |
+| `featured` | Destaque no topo da página |
+| `copy` | Ao passar o mouse, o card oferece copiar esse texto (ex.: o e-mail) em vez do atalho |
+| `hidden` | Some da página, mas o atalho continua funcionando |
+| `alias` | Atalhos: `links.vinicgobbi.dev.br/<alias>` redireciona para o link |
 
-```bash
-ng generate component component-name
-```
+O mesmo arquivo alimenta:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **a página**, importada no build (sem requisição extra ao abrir);
+- **os atalhos**: `scripts/generate-redirects.mjs` gera `public/_redirects` antes de cada build, e a Netlify redireciona direto no servidor (ex.: `/gh`, `/cv`). Atalhos com acento ou para links não-HTTP (como o e-mail) são resolvidos pelo Angular;
+- **a versão em Markdown** da página ([`netlify/edge-functions/markdown.ts`](netlify/edge-functions/markdown.ts)), servida quando a requisição pede `Accept: text/markdown`.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Desenvolvimento
 
 ```bash
-ng test
+pnpm install
+pnpm start      # http://localhost:4200
+pnpm test       # testes unitários (Vitest)
+pnpm run build  # gera os atalhos e o build em dist/docs/browser
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
