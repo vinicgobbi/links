@@ -42,11 +42,11 @@
   },
   {
     "name": "E-mail",
-    "description": "vinicius.cgobbi2004@gmail.com",
-    "link": "mailto:vinicius.cgobbi2004@gmail.com",
+    "description": "vinicgobbi@gmail.com",
+    "link": "mailto:vinicgobbi@gmail.com",
     "icon": "bi-envelope",
     "group": "profissional",
-    "copy": "vinicius.cgobbi2004@gmail.com",
+    "copy": "vinicgobbi@gmail.com",
     "alias": ["email", "gmail", "mail", "contato"]
   },
   {
