@@ -1,0 +1,153 @@
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.group__title {
+  margin-bottom: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+  min-width: 0;
+  min-height: 60px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+}
+
+.card:active {
+  transform: translateY(0);
+}
+
+.card__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: 1.2rem;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.card__name {
+  font-weight: 600;
+}
+
+.card__desc {
+  overflow-wrap: anywhere;
+  color: var(--text-subtle);
+  font-size: 0.82rem;
+}
+
+.card__arrow {
+  color: var(--text-subtle);
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover .card__arrow {
+  color: var(--accent-text);
+  transform: translate(2px, -2px);
+}
+
+.card--featured {
+  min-height: 72px;
+  border-color: transparent;
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.card--featured .card__icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: inherit;
+}
+
+.card--featured .card__desc,
+.card--featured .card__arrow,
+.card--featured:hover .card__arrow {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.card--featured:hover {
+  border-color: transparent;
+  background: var(--accent-hover);
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.notice > i {
+  color: var(--accent-text);
+}
+
+.notice p {
+  flex: 1;
+}
+
+.notice__close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}

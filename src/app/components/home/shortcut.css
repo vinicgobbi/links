@@ -1,0 +1,44 @@
+/* Ação rápida (copiar e-mail ou atalho): aparece sobre o card, no lugar da seta, ao passar o mouse. */
+.row {
+  position: relative;
+}
+
+.shortcut {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.shortcut:hover {
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+@media (hover: hover) {
+  .shortcut {
+    display: inline-flex;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .row:hover .shortcut,
+  .shortcut:focus-visible {
+    opacity: 1;
+  }
+
+  .row:hover .card__arrow {
+    opacity: 0;
+  }
+}

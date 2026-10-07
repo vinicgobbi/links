@@ -1,42 +1,33 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Data } from '../../services/data';
-import { Link } from '../../models/link';
+import { findByAlias } from '../../data/links';
 
+/**
+ * Fallback dos atalhos (/gh, /cv...). Em produção, a maioria já é redirecionada pela Netlify
+ * (public/_redirects); este componente cobre o servidor de desenvolvimento, atalhos com acento
+ * e links não-HTTP como o mailto.
+ */
 @Component({
   selector: 'app-redirect',
-  imports: [],
   templateUrl: './redirect.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './redirect.css'
+  styleUrl: './redirect.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Redirect implements OnInit {
+export class Redirect {
+  protected readonly alias: string;
+  protected readonly target?: string;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private dataService: Data
-  ) { }
+  constructor() {
+    const router = inject(Router);
+    this.alias = inject(ActivatedRoute).snapshot.paramMap.get('alias') ?? '';
+    const match = findByAlias(this.alias);
 
-  ngOnInit(): void {
-    const alias = this.route.snapshot.paramMap.get('alias')?.toLowerCase().trim() ?? '';
-
-    this.dataService.getLinks().subscribe({
-      next: (links: Link[]) => {
-        const match = links.find(link =>
-          link.name.toLowerCase() === alias ||
-          link.alias?.some(a => a.toLowerCase() === alias)
-        );
-
-        if (match) {
-          window.location.href = match.link;
-        } else {
-          this.router.navigate(['/']);
-        }
-      },
-      error: () => {
-        this.router.navigate(['/']);
-      }
-    });
+    if (match) {
+      this.target = match.link;
+      // replace: o botão "voltar" não cai de novo no atalho.
+      location.replace(match.link);
+    } else {
+      router.navigate(['/'], { replaceUrl: true, state: { notFound: this.alias } });
+    }
   }
 }

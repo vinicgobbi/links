@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br" data-bs-theme="dark">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KV981LY6QB"></script>
@@ -11,21 +11,35 @@
     gtag('config', 'G-KV981LY6QB');
   </script>
   <meta charset="utf-8">
+  <!-- Aplica o tema antes da renderização para evitar "flash" (ver ThemeService) -->
   <script>
     (function () {
-      try {
-        var stored = localStorage.getItem('theme');
-        if (stored === 'light' || stored === 'dark') {
-          document.documentElement.setAttribute('data-bs-theme', stored);
-        }
-      } catch (e) {}
+      var theme;
+      try { theme = localStorage.getItem('theme'); } catch (e) { }
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <title>ViniLinks</title>
+  <title>Vinícius Gobbi — Links</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Todos os links de Vinícius Gobbi, desenvolvedor Full-Stack: portfólio, LinkedIn, GitHub, currículo, e-mail e redes sociais.">
+  <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://links.vinicgobbi.dev.br/">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://links.vinicgobbi.dev.br/">
+  <meta property="og:title" content="Vinícius Gobbi — Links">
+  <meta property="og:description" content="Portfólio, LinkedIn, GitHub, currículo, e-mail e redes sociais.">
+  <meta property="og:image" content="https://links.vinicgobbi.dev.br/assets/profile.jpg">
+  <meta name="twitter:card" content="summary">
 </head>
 
 <body>

@@ -1,37 +1,76 @@
 [
   {
-    "name": "Instagram",
-    "link": "https://www.instagram.com/vinicgobbi.dev",
-    "alias": ["instagram", "ig", "insta"]
+    "name": "Portfólio",
+    "description": "Experiência, projetos e certificações",
+    "link": "https://vinicgobbi.dev.br",
+    "icon": "bi-globe2",
+    "group": "profissional",
+    "featured": true,
+    "alias": ["website", "site", "portfolio", "portfólio"]
   },
   {
     "name": "LinkedIn",
+    "description": "in/vinicgobbi",
     "link": "https://www.linkedin.com/in/vinicgobbi",
-    "alias": ["linkedin", "li"]
+    "icon": "bi-linkedin",
+    "group": "profissional",
+    "alias": ["linkedin", "li", "in"]
   },
   {
-    "name": "Github",
+    "name": "GitHub",
+    "description": "@vinicgobbi",
     "link": "https://github.com/vinicgobbi",
+    "icon": "bi-github",
+    "group": "profissional",
     "alias": ["github", "gh"]
   },
   {
-    "name": "Gmail",
+    "name": "Plugins para Omarchy",
+    "description": "Plugins open-source no marketplace",
+    "link": "https://plugins.omarchy.org/index.html?author=vinicgobbi",
+    "icon": "bi-puzzle",
+    "group": "profissional",
+    "alias": ["omarchy", "plugins"]
+  },
+  {
+    "name": "Currículo",
+    "description": "PDF sempre atualizado",
+    "link": "https://vinicgobbi.dev.br/assets/cv-vinicius-gobbi.pdf",
+    "icon": "bi-file-earmark-person",
+    "group": "profissional",
+    "alias": ["cv", "curriculo", "currículo", "resume"]
+  },
+  {
+    "name": "E-mail",
+    "description": "vinicius.cgobbi2004@gmail.com",
     "link": "mailto:vinicius.cgobbi2004@gmail.com",
-    "alias": ["gmail", "mail", "contato"]
+    "icon": "bi-envelope",
+    "group": "profissional",
+    "copy": "vinicius.cgobbi2004@gmail.com",
+    "alias": ["email", "gmail", "mail", "contato"]
+  },
+  {
+    "name": "Instagram",
+    "description": "@vinicgobbi",
+    "link": "https://www.instagram.com/vinicgobbi",
+    "icon": "bi-instagram",
+    "group": "social",
+    "alias": ["instagram", "ig", "insta"]
   },
   {
     "name": "Twitch",
-    "link": "https://www.twitch.com/vinicgobbi",
+    "description": "twitch.tv/vinicgobbi",
+    "link": "https://www.twitch.tv/vinicgobbi",
+    "icon": "bi-twitch",
+    "group": "social",
     "alias": ["twitch", "tw", "live"]
-  },
-  {
-    "name": "Website",
-    "link": "https://vinicgobbi.dev.br",
-    "alias": ["website", "portfólio", "site"]
   },
   {
     "name": "Blog",
     "link": "https://blog.vinicgobbi.dev.br",
+    "icon": "bi-journal-text",
+    "group": "social",
+    "hidden": true,
     "alias": ["blog"]
   }
 ]

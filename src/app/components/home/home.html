@@ -1,0 +1,83 @@
+@if (notFound(); as alias) {
+  <div class="notice" role="status">
+    <i class="bi bi-info-circle" aria-hidden="true"></i>
+    <p>
+      O atalho <strong>/{{ alias }}</strong> não existe. Escolha um dos links abaixo.
+    </p>
+    <button type="button" class="notice__close" (click)="notFound.set(null)" aria-label="Fechar aviso">
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+  </div>
+}
+
+<ng-template #card let-item>
+  <li class="row">
+    <a
+      class="card"
+      [class.card--featured]="item.featured"
+      [href]="item.link"
+      [attr.target]="isExternal(item) ? '_blank' : null"
+      [attr.rel]="isExternal(item) ? 'noopener' : null"
+    >
+      <span class="card__icon"><i class="bi {{ item.icon }}" aria-hidden="true"></i></span>
+      <span class="card__text">
+        <span class="card__name">{{ item.name }}</span>
+        @if (item.description) {
+          <span class="card__desc">{{ item.description }}</span>
+        }
+      </span>
+      <i class="bi bi-arrow-up-right card__arrow" aria-hidden="true"></i>
+    </a>
+    <!-- Ação rápida ao passar o mouse: copia o texto do link (ex.: e-mail) ou o atalho. -->
+    @if (item.copy) {
+      <button
+        type="button"
+        class="shortcut"
+        (click)="copy(item.copy)"
+        [attr.aria-label]="'Copiar ' + item.description"
+        [title]="copied() === item.copy ? 'Copiado!' : 'Copiar ' + item.description"
+      >
+        @if (copied() === item.copy) {
+          <i class="bi bi-check-lg" aria-hidden="true"></i> Copiado
+        } @else {
+          <i class="bi bi-copy" aria-hidden="true"></i> Copiar
+        }
+      </button>
+    } @else if (shortcutFor(item); as alias) {
+      <button
+        type="button"
+        class="shortcut"
+        (click)="copy(shortcutUrl(alias))"
+        [attr.aria-label]="'Copiar atalho ' + shortcutUrl(alias)"
+        [title]="copied() === shortcutUrl(alias) ? 'Atalho copiado!' : 'Copiar atalho ' + shortcutUrl(alias)"
+      >
+        @if (copied() === shortcutUrl(alias)) {
+          <i class="bi bi-check-lg" aria-hidden="true"></i> Copiado
+        } @else {
+          <i class="bi bi-link-45deg" aria-hidden="true"></i> /{{ alias }}
+        }
+      </button>
+    }
+  </li>
+</ng-template>
+
+<main class="links">
+  @if (featured.length) {
+    <ul class="list" aria-label="Destaque">
+      @for (item of featured; track item.name) {
+        <ng-container *ngTemplateOutlet="card; context: { $implicit: item }" />
+      }
+    </ul>
+  }
+
+  @for (group of groups; track group.id) {
+    <section class="group" [attr.aria-labelledby]="'grupo-' + group.id">
+      <h2 class="group__title" [id]="'grupo-' + group.id">{{ group.titulo }}</h2>
+      <ul class="list">
+        @for (item of group.links; track item.name) {
+          <ng-container *ngTemplateOutlet="card; context: { $implicit: item }" />
+        }
+      </ul>
+    </section>
+  }
+</main>

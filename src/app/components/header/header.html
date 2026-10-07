@@ -1,10 +1,89 @@
-<header class="app-header text-center py-4 position-relative">
-    <button type="button" class="btn btn-sm btn-outline-secondary theme-toggle position-absolute top-0 end-0 m-3"
-        (click)="themeService.toggle()"
-        [attr.aria-label]="themeService.theme() === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'"
-        [title]="themeService.theme() === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'">
-        <i class="bi" [class.bi-sun]="themeService.theme() === 'dark'" [class.bi-moon-stars]="themeService.theme() === 'light'"></i>
-    </button>
-    <img class="profile-picture rounded-circle" ngSrc="./assets/profile.jpg" width="100" height="100" priority alt="Foto de Vinícius Gobbi">
-    <p class="mt-2 mb-0 fs-5 fw-bold">Vinicgobbi</p>
+<div class="toolbar">
+  <button
+    type="button"
+    class="icon-btn"
+    (click)="openShare()"
+    aria-haspopup="dialog"
+    aria-label="Compartilhar esta página"
+    title="Compartilhar"
+  >
+    <i class="bi bi-share" aria-hidden="true"></i>
+  </button>
+  <button
+    type="button"
+    class="icon-btn"
+    (click)="theme.toggle()"
+    [attr.aria-label]="theme.theme() === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'"
+    [title]="theme.theme() === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'"
+  >
+    <i
+      class="bi"
+      [class.bi-sun]="theme.theme() === 'dark'"
+      [class.bi-moon-stars]="theme.theme() === 'light'"
+      aria-hidden="true"
+    ></i>
+  </button>
+</div>
+
+<header class="profile">
+  <img
+    class="profile__photo"
+    ngSrc="assets/profile.jpg"
+    width="112"
+    height="112"
+    priority
+    [alt]="'Foto de ' + profile.nome"
+  />
+  <h1 class="profile__name">{{ profile.nome }}</h1>
+  <p class="profile__role">{{ profile.cargo }}</p>
+  <p class="profile__meta">
+    <span>{{ profile.stack }}</span>
+    <span aria-hidden="true">·</span>
+    <span><i class="bi bi-geo-alt" aria-hidden="true"></i> {{ profile.localizacao }}</span>
+  </p>
+  @if (profile.disponivel) {
+    <p class="status">
+      <span class="status__dot" aria-hidden="true"></span>
+      Aberto a novas oportunidades
+    </p>
+  }
 </header>
+
+<dialog
+  #shareDialog
+  class="share"
+  aria-labelledby="share-title"
+  (click)="onDialogClick($event)"
+>
+  <div class="share__body">
+    <div class="share__header">
+      <h2 id="share-title" class="share__title">Compartilhar</h2>
+      <button type="button" class="icon-btn" (click)="closeShare()" aria-label="Fechar">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <img
+      class="share__qr"
+      src="assets/qrcode.svg"
+      width="200"
+      height="200"
+      [alt]="'QR code para ' + displayUrl"
+    />
+    <p class="share__hint">Aponte a câmera do celular para abrir esta página.</p>
+
+    <div class="share__url">
+      <span>{{ displayUrl }}</span>
+      <button type="button" class="share__copy" (click)="copyUrl()">
+        <i class="bi" [class.bi-copy]="!copied()" [class.bi-check-lg]="copied()" aria-hidden="true"></i>
+        <span aria-live="polite">{{ copied() ? 'Copiado!' : 'Copiar' }}</span>
+      </button>
+    </div>
+
+    @if (canShare) {
+      <button type="button" class="share__native" (click)="nativeShare()">
+        <i class="bi bi-box-arrow-up" aria-hidden="true"></i> Enviar por um app…
+      </button>
+    }
+  </div>
+</dialog>
