@@ -44,3 +44,7 @@ Thumbs.db
 
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
+
+# Gerado no build a partir de public/assets/links.json
+public/_redirects
+public/assets/qrcode.svg
