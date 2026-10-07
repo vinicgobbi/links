@@ -3,6 +3,8 @@ import type { Context } from "@netlify/edge-functions";
 interface LinkEntry {
   name: string;
   link: string;
+  description?: string;
+  hidden?: boolean;
 }
 
 export default async (request: Request, context: Context) => {
@@ -16,9 +18,11 @@ export default async (request: Request, context: Context) => {
   const body = [
     "# Vinícius Gobbi",
     "",
-    "Personal links and social profiles.",
+    "Desenvolvedor Full-Stack · Laravel, React e Angular. Links pessoais e redes sociais.",
     "",
-    ...links.map((entry) => `- [${entry.name}](${entry.link})`),
+    ...links
+      .filter((entry) => !entry.hidden)
+      .map((entry) => `- [${entry.name}](${entry.link})${entry.description ? ` — ${entry.description}` : ""}`),
     "",
   ].join("\n");
 
