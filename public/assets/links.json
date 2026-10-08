@@ -50,6 +50,15 @@
     "alias": ["email", "gmail", "mail", "contato"]
   },
   {
+    "name": "WhatsApp",
+    "description": "+55 (27) 99756-8805",
+    "link": "https://wa.me/5527997568805",
+    "icon": "bi-whatsapp",
+    "group": "profissional",
+    "copy": "+55 27 99756-8805",
+    "alias": ["whatsapp", "whats", "wa", "zap"]
+  },
+  {
     "name": "Instagram",
     "description": "@vinicgobbi",
     "link": "https://www.instagram.com/vinicgobbi",
