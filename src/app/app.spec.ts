@@ -22,11 +22,10 @@ describe('App', () => {
     expect(names).not.toContain('Blog');
   });
 
-  it('mostra o selo de disponibilidade e o painel de compartilhar com o QR code', async () => {
+  it('mostra o painel de compartilhar com o QR code', async () => {
     const fixture = TestBed.createComponent(Header);
     fixture.detectChanges();
     const page = fixture.nativeElement as HTMLElement;
-    expect(page.querySelector('.status')?.textContent).toContain('Aberto a novas oportunidades');
     expect(page.querySelector('dialog.share img.share__qr')?.getAttribute('src')).toBe(
       'assets/qrcode.svg',
     );

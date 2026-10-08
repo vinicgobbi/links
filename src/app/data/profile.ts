@@ -6,6 +6,4 @@ export const PROFILE = {
   cargo: 'Desenvolvedor Full-Stack',
   stack: 'Laravel · React · Angular',
   localizacao: 'Cariacica, ES — Brasil',
-  /** Mostra o selo "Aberto a novas oportunidades" (mesmo do portfólio). */
-  disponivel: true,
 };
