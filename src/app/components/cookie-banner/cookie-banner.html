@@ -1,0 +1,21 @@
+@if (analytics.bannerOpen()) {
+  <section class="consent" aria-labelledby="consent-title">
+    <h2 id="consent-title" class="consent__title">
+      <i class="bi bi-bar-chart" aria-hidden="true"></i> Cookies e estatísticas
+    </h2>
+    <p class="consent__text">
+      Com sua permissão, uso o Google Analytics para contar visitas e ver quais links são mais
+      acessados. Ele grava cookies no navegador e envia ao Google dados de navegação, como páginas
+      vistas, tipo de aparelho e localização aproximada. Se você recusar, nada é coletado.
+      <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">
+        Saiba mais
+      </a>
+    </p>
+    <div class="consent__actions">
+      <button type="button" class="consent__btn" (click)="analytics.choose('denied')">Recusar</button>
+      <button type="button" class="consent__btn consent__btn--primary" (click)="analytics.choose('granted')">
+        Aceitar
+      </button>
+    </div>
+  </section>
+}

@@ -6,12 +6,22 @@
   font-size: 0.8rem;
 }
 
-.footer a {
+.footer a,
+.footer__link {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.footer a:hover {
+.footer__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.footer a:hover,
+.footer__link:hover {
   color: var(--accent-text);
 }
