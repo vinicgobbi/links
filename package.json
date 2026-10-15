@@ -7,7 +7,8 @@
     "assets": "node scripts/generate-redirects.mjs && node scripts/generate-qrcode.mjs",
     "build": "pnpm run assets && ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -25,12 +26,17 @@
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
+    "@angular-eslint/builder": "22.6.0",
     "@angular/build": "^22.2.1",
     "@angular/cli": "^22.2.1",
     "@angular/compiler-cli": "^22.2.1",
+    "@eslint/js": "^10.0.1",
+    "angular-eslint": "22.6.0",
+    "eslint": "^10.12.0",
     "jsdom": "^30.1.2",
     "qrcode": "^1.5.4",
     "typescript": "~6.0.3",
+    "typescript-eslint": "8.71.0",
     "vitest": "^4.1.11"
   }
 }

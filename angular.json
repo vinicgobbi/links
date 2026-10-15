@@ -92,11 +92,23 @@
             "buildTarget": ":build:testing",
             "runner": "vitest"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "63fffc37-4209-4109-b70b-da56d5348ea0"
+    "analytics": "63fffc37-4209-4109-b70b-da56d5348ea0",
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }
