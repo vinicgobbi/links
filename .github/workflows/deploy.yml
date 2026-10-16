@@ -1,4 +1,4 @@
-# Gerado por deploy-dev v0.10.0 (deploy-dev init). Pode editar à
+# Gerado por deploy-dev v0.12.1 (deploy-dev init). Pode editar à
 # vontade; rode "deploy-dev check" para validar contra as convenções.
 #
 # Etapas: validate → build → deploy.
@@ -100,7 +100,7 @@ jobs:
       # Gera o release id (timestamp + sufixo), monta a chave num diretório
       # temporário e envia o tarball ao deploy-ci do servidor.
       - name: Deploy
-        uses: vinicgobbi/deploy-tools@fa6ece31f41f17ab04e052174f620ba37880c2fb # v0.10.0
+        uses: vinicgobbi/deploy-tools@e2e5aa7c189439f7806235c247ede554d502b282 # v0.12.1
         with:
           app: ${{ env.APP_NAME }}
           archive: ${{ runner.temp }}/release.tar.gz
