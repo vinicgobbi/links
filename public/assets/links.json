@@ -25,12 +25,12 @@
     "alias": ["github", "gh"]
   },
   {
-    "name": "Plugins para Omarchy",
-    "description": "Plugins open-source no marketplace",
-    "link": "https://plugins.omarchy.org/index.html?author=vinicgobbi",
-    "icon": "bi-puzzle",
+    "name": "Resultados das Eleições",
+    "description": "Apuração em tempo real com dados do TSE",
+    "link": "https://resultado.vinicgobbi.dev.br",
+    "icon": "bi-bar-chart-line",
     "group": "profissional",
-    "alias": ["omarchy", "plugins"]
+    "alias": ["eleicoes", "eleições", "resultado"]
   },
   {
     "name": "Currículo",
