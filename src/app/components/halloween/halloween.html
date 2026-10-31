@@ -1,0 +1,44 @@
+<ng-template #batTpl>
+  <svg class="bat__svg" viewBox="-50 -25 100 50">
+    <path class="wing" [attr.d]="wing" />
+    <g transform="scale(-1 1)"><path class="wing" [attr.d]="wing" /></g>
+    <ellipse cx="0" cy="3" rx="5.5" ry="10" />
+    <circle cx="0" cy="-8" r="5" />
+    <path d="M-4.5 -9 L-4 -17 L-0.5 -11 Z M4.5 -9 L4 -17 L0.5 -11 Z" />
+    <circle class="eye" cx="-2" cy="-8.5" r="1.1" />
+    <circle class="eye" cx="2" cy="-8.5" r="1.1" />
+  </svg>
+</ng-template>
+
+@if (active()) {
+  <div class="spooky" aria-hidden="true">
+    @for (bat of bats; track bat) {
+      <div class="bat bat--{{ bat }}"><ng-container *ngTemplateOutlet="batTpl" /></div>
+    }
+    @for (bat of swarm(); track bat.id) {
+      <div
+        class="bat bat--swarm"
+        [style.--dx]="bat.dx"
+        [style.--dy]="bat.dy"
+        [style.--size.px]="bat.size"
+        [style.animation-delay.ms]="bat.delay"
+      >
+        <ng-container *ngTemplateOutlet="batTpl" />
+      </div>
+    }
+    <div class="spider">
+      <span class="spider__thread"></span>
+      <span class="spider__body">🕷️</span>
+    </div>
+  </div>
+
+  <div class="greeting" role="status">
+    <button type="button" class="greeting__pumpkin" (click)="release()" aria-label="Soltar morcegos" title="Soltar morcegos">
+      🎃
+    </button>
+    <p>Feliz Halloween!</p>
+    <button type="button" class="greeting__close" (click)="close()" aria-label="Remover decoração de Halloween" title="Remover decoração">
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+  </div>
+}
