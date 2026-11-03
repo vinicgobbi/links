@@ -1,0 +1,279 @@
+.decor {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Neve: posição, tamanho e ritmo de cada floco vêm do componente. */
+.flake {
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  background: var(--snow);
+  animation: snowfall 16s linear infinite;
+}
+
+@keyframes snowfall {
+  0% { translate: 0 -12px; }
+  25% { translate: var(--sway) 25vh; }
+  50% { translate: 0 50vh; }
+  75% { translate: var(--sway) 75vh; }
+  100% { translate: 0 calc(100vh + 12px); }
+}
+
+/* Menos flocos em telas pequenas. */
+@media (max-width: 640px) {
+  .flake:nth-of-type(2n) {
+    display: none;
+  }
+}
+
+/* O trenó cruza a tela e some por um tempo: é uma visita, não um enfeite fixo. */
+.sleigh {
+  position: absolute;
+  top: 16%;
+  left: 0;
+  width: 150px;
+  fill: var(--text-muted);
+  stroke: none;
+  animation: sleigh 45s linear 2s infinite both;
+}
+
+.sleigh__svg {
+  display: block;
+  overflow: visible;
+}
+
+.line {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.line--thin {
+  stroke-width: 0.8;
+}
+
+.hat,
+.nose {
+  fill: #dc2626;
+}
+
+.nose {
+  animation: glow 1.2s ease-in-out infinite alternate;
+}
+
+.reindeer {
+  animation: gallop 0.5s ease-in-out infinite alternate;
+}
+
+.reindeer--back {
+  animation-delay: -0.25s;
+}
+
+@keyframes sleigh {
+  0% { translate: -170px 0; rotate: 0deg; }
+  8% { translate: 25vw -18px; rotate: -3deg; }
+  16% { translate: 50vw 6px; rotate: 2deg; }
+  24% { translate: 75vw -14px; rotate: -2deg; }
+  32%, 100% { translate: calc(100vw + 20px) 0; rotate: 0deg; }
+}
+
+@keyframes gallop {
+  from { translate: 0 -1.5px; }
+  to { translate: 0 1.5px; }
+}
+
+@keyframes glow {
+  from { opacity: 0.55; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .sleigh {
+    width: 110px;
+  }
+}
+
+/* Revoada: sai do presente e se espalha para cima. */
+.burst {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.5rem;
+  line-height: 1;
+  opacity: 0;
+  animation: burst 2.4s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@keyframes burst {
+  0% { translate: 0 0; scale: 0.2; rotate: 0deg; opacity: 0; }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { translate: var(--dx) var(--dy); scale: 1; rotate: var(--spin); opacity: 0; }
+}
+
+/* Enfeites balançando na ponta de um fio preso ao topo da tela, nas laterais. */
+.ornament {
+  --length: 60px;
+  --ball: #dc2626;
+  --ball-dark: #7f1d1d;
+  position: absolute;
+  top: 0;
+}
+
+.ornament--left {
+  left: 12%;
+}
+
+.ornament--right {
+  --length: 110px;
+  --ball: #16a34a;
+  --ball-dark: #14532d;
+  right: 12%;
+}
+
+/* Em telas estreitas, o fio cruzaria os botões do cabeçalho. */
+@media (max-width: 640px) {
+  .ornament--right {
+    display: none;
+  }
+}
+
+/* A animação gira o fio inteiro a partir do topo, levando a bola junto. */
+.ornament__thread {
+  position: absolute;
+  top: 0;
+  left: -0.5px;
+  width: 1px;
+  height: var(--length);
+  background: var(--text-subtle);
+  transform-origin: top center;
+  animation: swing 4s ease-in-out infinite alternate;
+}
+
+.ornament--right .ornament__thread {
+  animation-duration: 5s;
+  animation-direction: alternate-reverse;
+}
+
+.ornament__ball {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffffb3, var(--ball) 40%, var(--ball-dark) 100%);
+  translate: -50% 0;
+}
+
+.ornament__ball::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 8px;
+  height: 6px;
+  border-radius: 2px 2px 0 0;
+  background: #d4a017;
+  translate: -50% 0;
+}
+
+@keyframes swing {
+  from { rotate: -7deg; }
+  to { rotate: 7deg; }
+}
+
+.greeting {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.5rem 0.375rem 0.375rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-hover);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.greeting__gift,
+.greeting__close {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.greeting__gift {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1.35rem;
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+.greeting__gift:hover {
+  background: var(--accent-soft);
+  animation-duration: 0.6s;
+}
+
+@keyframes wiggle {
+  0%, 80%, 100% { rotate: 0deg; }
+  85% { rotate: -14deg; }
+  90% { rotate: 12deg; }
+  95% { rotate: -6deg; }
+}
+
+.greeting__close {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--text-muted);
+}
+
+.greeting__close:hover {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+/* Discreto, no lugar da saudação: a decoração foi fechada, mas pode voltar. */
+.restore {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 95;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.restore:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decor {
+    display: none;
+  }
+
+  .greeting__gift {
+    animation: none;
+  }
+}

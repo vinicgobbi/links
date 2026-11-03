@@ -58,6 +58,25 @@
   --accent-text: #fdba74;
 }
 
+/* Em dezembro: acento vermelho e neve (ver components/natal). */
+:root[data-natal] {
+  --accent: #b91c1c;
+  --accent-hover: #991b1b;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(220, 38, 38, 0.1);
+  --accent-text: #b91c1c;
+  --snow: #b6cde4;
+}
+
+:root[data-natal][data-theme='dark'] {
+  --accent: #ef4444;
+  --accent-hover: #f87171;
+  --accent-contrast: #1f0303;
+  --accent-soft: rgba(239, 68, 68, 0.15);
+  --accent-text: #f87171;
+  --snow: #f1f5f9;
+}
+
 *,
 *::before,
 *::after {

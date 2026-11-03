@@ -1,0 +1,69 @@
+@if (active()) {
+  <div class="decor" aria-hidden="true">
+    @for (flake of flakes(); track flake.id) {
+      <span
+        class="flake"
+        [style.left.%]="flake.left"
+        [style.width.px]="flake.size"
+        [style.height.px]="flake.size"
+        [style.opacity]="flake.opacity"
+        [style.animation-duration.s]="flake.duration"
+        [style.animation-delay.s]="flake.delay"
+        [style.--sway.px]="flake.sway"
+      ></span>
+    }
+
+    <div class="sleigh">
+      <svg class="sleigh__svg" viewBox="0 0 150 48">
+        <g class="reindeer reindeer--back" transform="translate(68 4)">
+          <path [attr.d]="reindeer" />
+          <path class="line" [attr.d]="antlers" />
+        </g>
+        <g class="reindeer" transform="translate(108 2)">
+          <path [attr.d]="reindeer" />
+          <path class="line" [attr.d]="antlers" />
+          <circle class="nose" cx="36.5" cy="11" r="2" />
+        </g>
+        <path class="line line--thin" d="M58 22 L72 22 M96 21 L112 20" />
+        <circle cx="11" cy="14" r="8" />
+        <circle cx="26" cy="8" r="5" />
+        <path class="hat" d="M21 7 C21 1 27 -1 32 2 L30 3 C28 3 31 6 31 7 Z" />
+        <path d="M3 18 L38 18 C40 25 47 27 58 25 C56 33 50 38 42 38 L14 38 C7 38 3 30 3 18 Z" />
+        <path class="line" d="M14 38 L14 44 M42 38 L42 44 M2 44 L54 44 C60 44 63 41 63 37" />
+      </svg>
+    </div>
+
+    <div class="ornament ornament--left">
+      <span class="ornament__thread"><span class="ornament__ball"></span></span>
+    </div>
+    <div class="ornament ornament--right">
+      <span class="ornament__thread"><span class="ornament__ball"></span></span>
+    </div>
+
+    @for (item of burst(); track item.id) {
+      <span
+        class="burst"
+        [style.--dx]="item.dx"
+        [style.--dy]="item.dy"
+        [style.--spin]="item.spin"
+        [style.font-size.px]="item.size"
+        [style.animation-delay.ms]="item.delay"
+        >{{ item.icon }}</span
+      >
+    }
+  </div>
+
+  <div class="greeting" role="status">
+    <button type="button" class="greeting__gift" (click)="release()" aria-label="Abrir presente" title="Abrir presente">
+      🎁
+    </button>
+    <p>Feliz Natal!</p>
+    <button #closeButton type="button" class="greeting__close" (click)="close()" aria-label="Remover decoração de Natal" title="Remover decoração">
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+  </div>
+} @else if (available()) {
+  <button #restoreButton type="button" class="restore" (click)="restore()" aria-label="Trazer de volta a decoração de Natal" title="Trazer de volta a decoração de Natal">
+    🎄
+  </button>
+}
