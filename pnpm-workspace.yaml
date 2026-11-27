@@ -4,5 +4,8 @@ allowBuilds:
   lmdb: true
   msgpackr-extract: true
 
+minimumReleaseAgeExclude:
+  - '@vinicgobbi/ui@0.1.0'
+
 overrides:
   minimatch: ^11.0.1
