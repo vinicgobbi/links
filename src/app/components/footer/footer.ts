@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AnalyticsService } from '../../services/analytics';
+import { AnalyticsService } from '@vinicgobbi/ui/consent';
 
 @Component({
   selector: 'app-footer',

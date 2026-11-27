@@ -26,13 +26,7 @@
               }
             ],
             "styles": [
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-              "node_modules/@fontsource/inter/400.css",
-              "node_modules/@fontsource/inter/500.css",
-              "node_modules/@fontsource/inter/600.css",
-              "node_modules/@fontsource/manrope/600.css",
-              "node_modules/@fontsource/manrope/700.css",
-              "node_modules/@fontsource/manrope/800.css",
+              "node_modules/@vinicgobbi/ui/styles/index.css",
               "src/styles.css"
             ],
             "scripts": []
