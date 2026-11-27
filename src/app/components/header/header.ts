@@ -7,7 +7,7 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { ThemeService } from '../../services/theme';
+import { ThemeService } from '@vinicgobbi/ui/theme';
 import { PROFILE, SITE_URL } from '../../data/profile';
 
 @Component({

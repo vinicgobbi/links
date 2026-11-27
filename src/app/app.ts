@@ -2,9 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
-import { CookieBanner } from './components/cookie-banner/cookie-banner';
-import { Halloween } from './components/halloween/halloween';
-import { Natal } from './components/natal/natal';
+import { CookieBanner } from '@vinicgobbi/ui/consent';
+import { Halloween, Natal } from '@vinicgobbi/ui/seasonal';
 
 @Component({
   selector: 'app-root',

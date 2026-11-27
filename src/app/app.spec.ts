@@ -4,6 +4,8 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { routes } from './app.routes';
 import { LINKS } from './data/links';
 import { Header } from './components/header/header';
+import { hasThemeInitScript } from '@vinicgobbi/ui/theme';
+import indexHtml from '../index.html' with { loader: 'text' };
 
 describe('App', () => {
   beforeEach(() => {
@@ -44,5 +46,9 @@ describe('App', () => {
     const harness = await RouterTestingHarness.create('/');
     const anchors = (harness.routeNativeElement as HTMLElement).querySelectorAll('a.card[href]');
     expect(anchors.length).toBe(LINKS.filter((item) => !item.hidden).length);
+  });
+
+  it('o index.html traz o script anti-flash do tema da versão instalada de @vinicgobbi/ui', () => {
+    expect(hasThemeInitScript(indexHtml)).toBe(true);
   });
 });
