@@ -3,11 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { CookieBanner } from '@vinicgobbi/ui/consent';
-import { Halloween, Natal } from '@vinicgobbi/ui/seasonal';
+import { Seasonal } from '@vinicgobbi/ui/seasonal';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, CookieBanner, Halloween, Natal],
+  imports: [RouterOutlet, Header, Footer, CookieBanner, Seasonal],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
